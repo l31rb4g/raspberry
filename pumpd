@@ -7,5 +7,5 @@ fi
 
 if [ "$1" == "stop" ]; then
     killall -9 pump.py
-    (/home/l31rb4g/raspberry/pump.py --stop | at now)&
+    nohup (/home/l31rb4g/raspberry/pump.py --stop &)&
 fi
