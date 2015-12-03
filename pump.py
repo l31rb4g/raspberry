@@ -46,7 +46,7 @@ class Pump:
             n -= 1
             sleep(1)
             if n == 0:
-                sys.stdout.write('\r' + (' ' * 20) + '\n')
+                sys.stdout.write('\r' + (' ' * 20))
                 sys.stdout.flush()
                 break
 
