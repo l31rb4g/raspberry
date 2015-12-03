@@ -1,3 +1,5 @@
 #!/bin/bash
 
-(/home/l31rb4g/raspberry/pump.py)&
+if [ "$1" == "start" ]; then
+    (/home/l31rb4g/raspberry/pump.py)&
+fi
