@@ -12,6 +12,7 @@ channels = {
 
 if len(sys.argv) == 3:
     c = int(sys.argv[1])
+    print('channel ' + str(c))
     status = sys.argv[2]
 
     GPIO.setmode(GPIO.BOARD)
