@@ -19,20 +19,11 @@ class Pump:
     }
 
     def __init__(self):
-        GPIO.setmode(GPIO.BOARD)
-
-        c = False
-
-        if len(sys.argv) > 1:
-            n = sys.argv[1]
-            if int(n) >= 1 and int(n) <= 4:
-                c = self.channels[sys.argv[1]]
-            else:
-                print('Canal invalido: ' + n)
-        else:
-            print('Digite o número do canal')
+        cn = 3
+        c = self.channels[cn]
 
         if c:
+            GPIO.setmode(GPIO.BOARD)
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
@@ -59,6 +50,5 @@ class Pump:
                 break
 
 
-print(__name__)
 if __name__ == '__main__':
     Pump()
