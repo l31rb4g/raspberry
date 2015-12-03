@@ -11,14 +11,13 @@ channels = {
 }
 
 if len(sys.argv) == 3:
-    c = int(sys.argv[1])
-    print('channel ' + str(c))
+    c = sys.argv[1]
     status = sys.argv[2]
 
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(c, GPIO.OUT)
+    GPIO.setup(int(c), GPIO.OUT)
 
     if status == 'on':
-        GPIO.output(c, GPIO.LOW)
+        GPIO.output(int(c), GPIO.LOW)
     elif status == 'off':
-        GPIO.output(c, GPIO.HIGH)
+        GPIO.output(int(c), GPIO.HIGH)
