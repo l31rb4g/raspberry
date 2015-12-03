@@ -36,7 +36,7 @@ class Pump:
                     self.wait(self.time['empty'], 'Esvaziando')
 
             except KeyboardInterrupt:
-                print('\n>>> Desligando tudo\n')
+                print('\n\n>>> Desligando tudo\n')
                 GPIO.cleanup()
 
     def wait(self, n, msg):
