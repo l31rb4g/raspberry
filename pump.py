@@ -1,6 +1,8 @@
 #!/usr/bin/python
 #encoding: utf-8
+import re
 import sys
+import datetime
 import RPi.GPIO as GPIO
 from time import sleep
 
@@ -27,11 +29,11 @@ class Pump:
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
-                    print('\n>>> Ligando bomba por ' + str(self.time['full']) + ' segundos')
+                    print('\n>>> Ligando bomba por ' + self.duration(self.time['full']))
                     GPIO.output(c, GPIO.LOW)
                     self.wait(self.time['full'], 'Enchendo')
 
-                    print('\n>>> Desligando bomba por ' + str(self.time['empty']) + ' segundos')
+                    print('\n>>> Desligando bomba por ' + self.duration(self.time['empty']))
                     GPIO.output(c, GPIO.HIGH)
                     self.wait(self.time['empty'], 'Esvaziando')
 
@@ -41,7 +43,7 @@ class Pump:
 
     def wait(self, n, msg):
         while True:
-            sys.stdout.write('\r' + msg + ' ... ' + str(n) + ' ')
+            sys.stdout.write('\r' + msg + ' ... ' + self.duration(n) + ' ')
             sys.stdout.flush()
             n -= 1
             sleep(1)
@@ -49,6 +51,11 @@ class Pump:
                 sys.stdout.write('\r' + (' ' * 20))
                 sys.stdout.flush()
                 break
+
+    def duration(self, n):
+        r = str(datetime.timedelta(seconds=int(n)))
+        r = re.sub('^0:', '', r)
+        return r
 
 
 if __name__ == '__main__':
