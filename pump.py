@@ -15,7 +15,7 @@ class Pump:
 
     time = {
         'full': 80,
-        'empty': 200
+        'empty': 190
     }
 
     def __init__(self):
