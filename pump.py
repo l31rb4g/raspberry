@@ -27,16 +27,16 @@ class Pump:
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
-                    print('>>> Ligando bomba por ' + str(self.time['full']) + 'segundos')
+                    print('\n>>> Ligando bomba por ' + str(self.time['full']) + ' segundos')
                     GPIO.output(c, GPIO.LOW)
                     self.wait(self.time['full'], 'Enchendo')
 
-                    print('>>> Desligando bomba por ' + str(self.time['empty']) + 'segundos')
+                    print('\n>>> Desligando bomba por ' + str(self.time['empty']) + ' segundos')
                     GPIO.output(c, GPIO.HIGH)
                     self.wait(self.time['empty'], 'Esvaziando')
 
             except KeyboardInterrupt:
-                print('\n')
+                print('\n>>> Desligando tudo\n')
                 GPIO.cleanup()
 
     def wait(self, n, msg):
