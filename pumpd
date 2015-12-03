@@ -3,3 +3,9 @@
 if [ "$1" == "start" ]; then
     (/home/l31rb4g/raspberry/pump.py --silence | at now)&
 fi
+
+
+if [ "$1" == "stop" ]; then
+    killall -9 pump.py
+    (/home/l31rb4g/raspberry/pump.py --stop | at now)&
+fi

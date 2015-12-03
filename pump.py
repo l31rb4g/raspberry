@@ -25,13 +25,22 @@ class Pump:
     silence = False
 
     def __init__(self):
+        GPIO.setmode(GPIO.BOARD)
         c = self.channels[str(self.channel)]
 
         if len(sys.argv) > 1 and sys.argv[1] == '--silence':
             self.silence = True
 
+        if len(sys.argv) > 1 and sys.argv[1] == '--stop':
+            if not self.silence:
+                print('\n\n>>> Desligando tudo\n')
+            for c in self.channels:
+                GPIO.setup(self.channels[c], GPIO.OUT)
+                GPIO.output(self.channels[c], GPIO.HIGH)
+            GPIO.cleanup()
+            return
+
         if c:
-            GPIO.setmode(GPIO.BOARD)
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
