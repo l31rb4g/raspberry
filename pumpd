@@ -3,3 +3,7 @@
 if [ "$1" == "start" ]; then
     (/home/l31rb4g/raspberry/pump.py)&
 fi
+
+if [ "$1" == "stop" ]; then
+    (/home/l31rb4g/raspberry/pump.py --stop)&
+fi

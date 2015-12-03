@@ -59,4 +59,8 @@ class Pump:
 
 
 if __name__ == '__main__':
-    Pump()
+    if len(sys.argv) > 1 and sys.argv[1] == '--stop':
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.cleanup()
+    else:
+        Pump()
