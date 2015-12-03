@@ -31,10 +31,10 @@ class Pump:
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
-                    self.wait(80, 'Enchendo')
                     GPIO.output(c, GPIO.LOW)
-                    self.wait(200, 'Esvaziando')
+                    self.wait(80, 'Enchendo')
                     GPIO.output(c, GPIO.HIGH)
+                    self.wait(200, 'Esvaziando')
 
             except KeyboardInterrupt:
                 GPIO.cleanup()
