@@ -20,6 +20,7 @@ class Pump:
 
     def __init__(self):
         cn = 3
+        print(self.channels)
         c = self.channels[str(cn)]
 
         if c:
