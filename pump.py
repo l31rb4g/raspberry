@@ -41,6 +41,8 @@ class Pump:
             return
 
         if c:
+            if self.silence:
+                sleep(self.time['empty'])
             try:
                 GPIO.setup(c, GPIO.OUT)
                 while True:
