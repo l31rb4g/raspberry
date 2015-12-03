@@ -1,8 +1,10 @@
 #!/usr/bin/python
+import sys
 import time
 from subprocess import call
 
 
-h = int(time.strftime('%H'))
-if h >= 6 and h < 22:
-    call(['/home/l31rb4g/raspberry/switch.py', '1', 'on']);
+if len(sys.argv) > 1 and sys.argv[1] == 'start':
+    h = int(time.strftime('%H'))
+    if h >= 6 and h < 22:
+        call(['/home/l31rb4g/raspberry/switch.py', '1', 'on'])
