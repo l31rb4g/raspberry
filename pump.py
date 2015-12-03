@@ -47,3 +47,7 @@ class Pump:
             sleep(1)
             if n == 0:
                 break
+
+
+if __name__ == '__main__':
+    Pump()
