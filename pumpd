@@ -1,5 +1,5 @@
 #!/bin/bash
 
 if [ "$1" == "start" ]; then
-    (/home/l31rb4g/raspberry/pump.py)&
+    (/home/l31rb4g/raspberry/pump.py --silence)&
 fi
