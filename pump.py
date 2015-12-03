@@ -20,7 +20,7 @@ class Pump:
 
     def __init__(self):
         cn = 3
-        c = self.channels[cn]
+        c = self.channels[str(cn)]
 
         if c:
             GPIO.setmode(GPIO.BOARD)
