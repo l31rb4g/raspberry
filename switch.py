@@ -10,12 +10,13 @@ channels = {
     '4': 13
 }
 
-GPIO.setmode(GPIO.BOARD)
-
 if len(sys.argv) == 3:
-    c = sys.argv[1]
+    c = int(sys.argv[1])
     status = sys.argv[2]
+
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setup(c, GPIO.OUT)
+
     if status == 'on':
         GPIO.output(c, GPIO.LOW)
     elif status == 'off':
