@@ -46,7 +46,8 @@ class Pump:
             n -= 1
             sleep(1)
             if n == 0:
-                print('')
+                sys.stdout.write('\r\n')
+                sys.stdout.flush()
                 break
 
 
