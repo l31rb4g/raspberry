@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ "$1" == "start" ]; then
-    (nohup /home/l31rb4g/raspberry/pump.py --silence &)&
+    (/home/l31rb4g/raspberry/pump.py --silence &)&
 fi
 
 
 if [ "$1" == "stop" ]; then
     killall -9 pump.py
-    (nohup /home/l31rb4g/raspberry/pump.py --stop &)&
+    (/home/l31rb4g/raspberry/pump.py --stop &)&
 fi
