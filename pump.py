@@ -18,7 +18,7 @@ class Pump:
     channel = 3
 
     time = {
-        'full': 80,
+        'full': 90,
         'empty': 200
     }
 

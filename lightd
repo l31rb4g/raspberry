@@ -6,5 +6,6 @@ from subprocess import check_output
 
 if len(sys.argv) > 1 and sys.argv[1] == 'start':
     h = int(time.strftime('%H'))
+    print  h
     if 6 <= h < 22:
         check_output('/home/l31rb4g/raspberry/switch.py 1 on', shell=True)
