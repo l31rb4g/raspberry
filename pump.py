@@ -37,7 +37,6 @@ class Pump:
             for c in self.channels:
                 GPIO.setup(self.channels[c], GPIO.OUT)
                 GPIO.output(self.channels[c], GPIO.HIGH)
-            GPIO.cleanup()
             return
 
         if c:
