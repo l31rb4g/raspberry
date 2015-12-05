@@ -18,8 +18,10 @@ class Pump:
     channel = 3
 
     time = {
-        'full': 90,
-        'empty': 200
+        'full': 100,
+        'half': 80,
+        'empty': 90,
+        'fullempty': 200,
     }
 
     silence = False
@@ -41,19 +43,26 @@ class Pump:
 
         if c:
             if self.silence:
-                sleep(self.time['empty'])
+                sleep(self.time['fullempty'])
             try:
                 GPIO.setup(c, GPIO.OUT)
+                first = True
                 while True:
+                    t = 'half'
+                    if first:
+                        t = 'full'
+                    
                     if not self.silence:
-                        print('\n>>> Ligando bomba por ' + self.duration(self.time['full']))
+                        print('\n>>> Ligando bomba por ' + self.duration(self.time[t]) + ' - ' + t)
                     GPIO.output(c, GPIO.LOW)
-                    self.wait(self.time['full'], 'Enchendo')
-
+                    self.wait(self.time[t], 'Enchendo')
+                    
                     if not self.silence:
                         print('\n>>> Desligando bomba por ' + self.duration(self.time['empty']))
                     GPIO.output(c, GPIO.HIGH)
-                    self.wait(self.time['empty'], 'Esvaziando')
+                    self.wait(self.time['hempty'], 'Esvaziando')
+
+                    first = False
 
             except KeyboardInterrupt:
                 if not self.silence:
