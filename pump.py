@@ -60,7 +60,7 @@ class Pump:
                     if not self.silence:
                         print('\n>>> Desligando bomba por ' + self.duration(self.time['empty']))
                     GPIO.output(c, GPIO.HIGH)
-                    self.wait(self.time['hempty'], 'Esvaziando')
+                    self.wait(self.time['empty'], 'Esvaziando')
 
                     first = False
 
